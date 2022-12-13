@@ -17,3 +17,7 @@ code {
   display: flex;
   justify-content: center;
 }
+
+.logoLogin {
+  width: 100px;
+}
