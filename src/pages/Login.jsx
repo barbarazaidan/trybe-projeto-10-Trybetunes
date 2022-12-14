@@ -44,7 +44,7 @@ class Login extends React.Component {
   }
 
   validationLogin({ target }) {
-    console.log(target.value);
+    // console.log(target.value);
     const { value } = target;
     const valueMin = 3;
     if (value.length >= valueMin) {
@@ -56,7 +56,7 @@ class Login extends React.Component {
     const { history } = this.props;
     const { push } = history;
     const { name } = this.state;
-    console.log(history);
+    // console.log(history);
     // console.log(createUser({ name })); // retorna uma promise
     this.setState( // mudo o eatado e aí sim executo a função que salva o nome da pessoa
       { isLogged: true },
