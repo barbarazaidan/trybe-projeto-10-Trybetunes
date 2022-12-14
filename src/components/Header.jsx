@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Carregando from './Carregando';
 
@@ -19,7 +20,7 @@ class Header extends React.Component {
 
   apiReturn() {
     getUser() // é uma promise
-    // .then(response => console.log(response)) // retorna um objeto {name: 'bárbara', email: '', image: '', description: ''}
+      // .then(response => console.log(response)) // retorna um objeto {name: 'bárbara', email: '', image: '', description: ''}
       .then((response) => this.setState({ nameUser: response.name }));
   }
 
@@ -29,11 +30,18 @@ class Header extends React.Component {
 
     return (
       <header data-testid="header-component">
-        {
-          nameUser === ''
-            ? <Carregando />
-            : <p data-testid="header-user-name">{ nameUser }</p>
-        }
+        <div className="nomeUsuarioHeader">
+          {
+            nameUser === ''
+              ? <Carregando />
+              : <p data-testid="header-user-name">{nameUser}</p>
+          }
+        </div>
+        <nav className="navegacaoHeader">
+          <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
+          <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>
+          <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+        </nav>
       </header>
     );
   }
