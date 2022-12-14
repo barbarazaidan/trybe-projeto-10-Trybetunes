@@ -30,12 +30,15 @@ class Header extends React.Component {
 
     return (
       <header data-testid="header-component">
-        <div className="nomeUsuarioHeader">
-          {
-            nameUser === ''
-              ? <Carregando />
-              : <p data-testid="header-user-name">{nameUser}</p>
-          }
+        <div className="headerLogoUser">
+          <img className="logoHeader" src="https://imagensemoldes.com.br/wp-content/uploads/2020/03/Headphone-m%C3%ADsica-png-Gr%C3%A1tis-1024x1024.png" alt="logo" />
+          <div className="nomeUsuarioHeader">
+            {
+              nameUser === ''
+                ? <Carregando />
+                : <p data-testid="header-user-name">{nameUser}</p>
+            }
+          </div>
         </div>
         <nav className="navegacaoHeader">
           <Link to="/search" data-testid="link-to-search">Pesquisa</Link>

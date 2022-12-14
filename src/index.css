@@ -18,6 +18,11 @@ code {
   justify-content: center;
 }
 
+.logoHeader {
+  width: 100px;
+}
+
 .logoLogin {
   width: 100px;
 }
+
