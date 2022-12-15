@@ -31,7 +31,7 @@ class Album extends React.Component {
 
   renderElements() {
     const { listOfSongs } = this.state; // array de objetos
-    console.log('listofsongs', listOfSongs);
+    // console.log('listofsongs', listOfSongs);
     const { artworkUrl60, artistName, collectionName } = listOfSongs[0];
 
     // const firstElementArray = listOfSongs.shift(); // o método shift() pega o primeiro elemento do array e o retorna. Ele também modifica o array original, eliminando o primeiro elemento. Tal método deu erro nos testes, talvez por modificar o estado listOfSongs.

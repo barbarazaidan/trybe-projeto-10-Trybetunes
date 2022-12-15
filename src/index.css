@@ -40,3 +40,9 @@ code {
   width: 100px;
 }
 
+.songAndFavorite {
+  display: flex;
+}
+
+
+
