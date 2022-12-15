@@ -22,6 +22,10 @@ code {
     monospace;
 }
 
+.listOfSongs {
+  list-style-type: decimal;
+}
+
 .loading {
   align-items: center;
   display: flex;
