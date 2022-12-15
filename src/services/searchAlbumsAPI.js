@@ -5,9 +5,11 @@ const searchAlbumsAPI = async (artist) => {
 
   const APIResponse = await fetch(getAlbumsAPI);
 
-  const { results } = await APIResponse.json();
+  const { results } = await APIResponse.json(); // results é um array de objetos e cada objeto representa um dos álbuns do artista
 
-  const response = results.map(
+  // console.log('results', results);
+
+  const response = results.map( // pega cada álbum (objeto do array) e refaz apenas com as chaves que preciso (aquelas que foram desestruturadas).
     ({
       artistId,
       artistName,
@@ -28,6 +30,7 @@ const searchAlbumsAPI = async (artist) => {
       trackCount,
     }),
   );
+  // console.log('response', response);
   return response;
 };
 
