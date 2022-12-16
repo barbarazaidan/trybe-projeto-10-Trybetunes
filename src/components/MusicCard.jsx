@@ -8,13 +8,20 @@ class MusicCard extends React.Component {
     super();
     this.favoriteSong = this.favoriteSong.bind(this);
     this.renderElements = this.renderElements.bind(this);
-    // this.callingAddSong = this.callingAddSong.bind(this);
 
     this.state = {
       isFavorite: false,
       isCallingAPI: false,
       // favoritesSongs: [],
     };
+  }
+
+  componentDidMount() {
+    const { favoritesSongs, song } = this.props;
+    // console.log('favoritesSongs', favoritesSongs);
+    // console.log('song', song);
+    const response = favoritesSongs.some((music) => music.trackId === song.trackId);
+    this.setState({ isFavorite: response });
   }
 
   async favoriteSong(event) {
@@ -26,22 +33,6 @@ class MusicCard extends React.Component {
     await addSong(song);
     this.setState({ isCallingAPI: false });
   }
-
-  // favoriteSong(event) {
-  //   const { target: { checked } } = event;
-  //   this.setState(
-  //     { isFavorite: checked, isCallingAPI: true },
-  //   );
-  //   this.callingAddSong();
-  // }
-
-  // callingAddSong() {
-  //   const { song } = this.props;
-  //   // const savesong = await addSong(song);
-  //   // console.log(savesong);
-  //   addSong(song)
-  //     .then(this.setState({ isCallingAPI: false }));
-  // }
 
   renderElements() {
     const { song } = this.props;
@@ -74,6 +65,7 @@ class MusicCard extends React.Component {
 
   render() {
     const { isCallingAPI } = this.state;
+
     return (
       <div className="liListOfSongs">
         { isCallingAPI ? <Carregando /> : this.renderElements() }
@@ -88,6 +80,9 @@ MusicCard.propTypes = {
     previewUrl: PropTypes.string,
     trackId: PropTypes.number,
   }).isRequired,
+  favoritesSongs: PropTypes.arrayOf(PropTypes.shape({
+    trackId: PropTypes.number,
+  })).isRequired,
 };
 
 export default MusicCard;
