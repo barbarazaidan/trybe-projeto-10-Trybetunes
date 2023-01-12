@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
 import Carregando from './Carregando';
 
 class MusicCard extends React.Component {
@@ -27,11 +27,17 @@ class MusicCard extends React.Component {
   async favoriteSong(event) {
     const { song } = this.props;
     const { target: { checked } } = event;
+    console.log(checked);
     this.setState(
       { isFavorite: checked, isCallingAPI: true },
     );
-    await addSong(song);
-    this.setState({ isCallingAPI: false });
+    if (checked) {
+      await addSong(song);
+      this.setState({ isCallingAPI: false });
+    } else {
+      await removeSong(song);
+      this.setState({ isCallingAPI: false });
+    }
   }
 
   renderElements() {
