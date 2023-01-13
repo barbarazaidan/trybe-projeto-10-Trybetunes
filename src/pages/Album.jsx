@@ -36,6 +36,10 @@ class Album extends React.Component {
     );
   }
 
+  listNewfavoritesSongs = (newFavorites) => {
+    this.setState({ favoritesSongs: newFavorites });
+  };
+
   createCardSong(song) {
     return (
       <li key={ song.trackId }>
@@ -87,7 +91,11 @@ class Album extends React.Component {
           {listOfSongs.slice(1).map((song) => (
             // o slice(1) retorna uma cópia do array do array original sem o primeiro elemento
             <li key={ song.trackId }>
-              <MusicCard song={ song } favoritesSongs={ favoritesSongs } />
+              <MusicCard
+                song={ song }
+                favoritesSongs={ favoritesSongs }
+                listNewfavoritesSongs={ this.listNewfavoritesSongs }
+              />
             </li>
           ))}
         </ul>

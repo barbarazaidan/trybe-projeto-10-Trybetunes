@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Carregando from './Carregando';
 
 class MusicCard extends React.Component {
@@ -12,7 +12,7 @@ class MusicCard extends React.Component {
     this.state = {
       isFavorite: false,
       isCallingAPI: false,
-      // favoritesSongs: [],
+      // favorites: [],
     };
   }
 
@@ -25,9 +25,9 @@ class MusicCard extends React.Component {
   }
 
   async favoriteSong(event) {
-    const { song } = this.props;
+    const { song, listNewfavoritesSongs } = this.props;
     const { target: { checked } } = event;
-    console.log(checked);
+    // console.log(event);
     this.setState(
       { isFavorite: checked, isCallingAPI: true },
     );
@@ -36,7 +36,10 @@ class MusicCard extends React.Component {
       this.setState({ isCallingAPI: false });
     } else {
       await removeSong(song);
+      const newFavorites = await getFavoriteSongs();
+      // console.log(newFavorites);
       this.setState({ isCallingAPI: false });
+      listNewfavoritesSongs(newFavorites);
     }
   }
 
@@ -58,7 +61,7 @@ class MusicCard extends React.Component {
             Favorita
             <input
               type="checkbox"
-              name="favoriteSong"
+              id="favoriteSong"
               data-testid={ `checkbox-music-${trackId}` }
               checked={ isFavorite }
               onChange={ this.favoriteSong }
@@ -89,6 +92,7 @@ MusicCard.propTypes = {
   favoritesSongs: PropTypes.arrayOf(PropTypes.shape({
     trackId: PropTypes.number,
   })).isRequired,
+  listNewfavoritesSongs: PropTypes.func.isRequired,
 };
 
 export default MusicCard;
