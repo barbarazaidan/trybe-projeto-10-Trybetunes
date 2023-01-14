@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { getUser } from '../services/userAPI';
 import Carregando from '../components/Carregando';
-import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
   state = {
