@@ -17,9 +17,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#buttonProfileEdit {
+  width: 300px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.formEditFoto {
+  display: flex;
+}
+
+.formEditProfile {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelInputsForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-top: 10px;
+}
+
+.labelInputsFoto {
+  margin-left: 10px;
 }
 
 .listOfSongs {
@@ -42,6 +66,14 @@ code {
 
 .songAndFavorite {
   display: flex;
+}
+
+.tagPEditeProfile {
+  font-style: italic;
+}
+
+textarea {
+  resize: none;
 }
 
 

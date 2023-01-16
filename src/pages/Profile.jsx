@@ -38,14 +38,16 @@ class Profile extends React.Component {
         { isCallingApi
           ? <Carregando />
           : (
-            <section>
-              <div>
+            <section className="profileInfo">
+              <div className="imageELink">
                 <img
                   data-testid="profile-image"
                   src={ image }
                   alt="foto do usuário"
                 />
-                <Link to="/profile/edit">Editar perfil</Link>
+                <Link to="/profile/edit">
+                  <p>Editar perfil</p>
+                </Link>
               </div>
               <h3>Nome</h3>
               <p>{ name }</p>

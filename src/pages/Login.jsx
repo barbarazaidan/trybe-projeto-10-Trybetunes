@@ -58,7 +58,7 @@ class Login extends React.Component {
     const { name } = this.state;
     // console.log(history);
     // console.log(createUser({ name })); // retorna uma promise
-    this.setState( // mudo o eatado e aí sim executo a função que salva o nome da pessoa
+    this.setState( // mudo o estado e aí sim executo a função que salva o nome da pessoa
       { isLogged: true },
       () => {
         createUser({ name })
