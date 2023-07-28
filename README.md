@@ -1,7 +1,7 @@
 # Projeto TrybeTunes
 ## Este repositório contém o desenvolvimento do meu 10º projeto na Trybe
 
-Este foi um dos projetos mais desafiadores do módulo de Frontend. Ele se trata de uma construção que simula as funcionalidades de plataformas de música, como Spotify e Deezer. Para desenvolver esse projeto, utilizei o React e trabalhei com questões relacionadas à criação de rotas, desenvolvimento de formulários, chamadas à API, mecanismos de busca etc. 
+Este foi um dos projetos mais desafiadores do módulo de Frontend. Ele se trata de uma construção que simula as funcionalidades de plataformas de música, como Spotify e Deezer. Para desenvolver esse projeto, utilizei o React e trabalhei com questões relacionadas à criação de rotas, ao desenvolvimento de formulários, a chamadas à API, a mecanismos de busca etc. 
 
 ## Detalhes do projeto
 
